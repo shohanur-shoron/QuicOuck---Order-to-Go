@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Sunflower:wght@300;500;700&family=Syncopate:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formDiv{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+.blue{
+    color: #3742fa;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.282);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); 
+    border-radius: 10px;
+  }
+
+/* font-family: "Poppins", sans-serif; */
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+    h1{
+        padding-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: white;
+        position: relative;
+        top: -40px;
+    }
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="submit"]{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid rgb(0, 0, 0);   
+    border-radius: 5px; 
+}
+::placeholder { 
+    color:#130f40;
+    font-weight: 200;
+    font-size: 16px;
+    transition: 150ms;
+}
+
+::placeholder:focus{
+    color: green;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.inputBox{
+    width: 100%;
+    padding-bottom: 15px;
+    
+
+
+    input[type="tel"],
+    input[type="password"]{
+        width: 100%;
+        height: 35px;
+        padding-left: 7px;
+    }
+
+    input[type="text"]{
+        width: 48.7%;
+        height: 35px;
+        padding-left: 7px;
+    }
+}
+
+.submitButton{
+    height: 35px;
+
+    input[type="submit"]{
+        height: 35px;
+        width: 100%;
+        cursor: pointer;
+        transition: 150ms;
+    }
+
+    input[type="submit"]:hover{
+        background: rgba(255, 255, 255, 0.282);
+        /* backdrop-filter: blur(0px); */
+        box-shadow: 1px 1px 8px 0 rgba(47, 47, 47, 0.37);
+    }
+}

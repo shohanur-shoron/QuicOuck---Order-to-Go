@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #c3f0e8;
+    color: #337a47;
+}
+
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 7px #49494969;
+    position: fixed;
+    transition: all 200ms;
+}
+
+.navbarTransform{
+    transform: translateY(-11vh);
+}
+
+.navbar .logoAndLinks{
+    height: 100%;
+    display: flex;
+    
+
+    .logo{
+        height: 100%;
+        width: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            height: 70%;
+        }
+    }
+
+    .allLinkls{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        gap: 30px;
+        padding-left: 50px;
+
+        a{
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 7px;
+            transition: background-color 250ms;
+
+            &:hover{
+                background-color: #d1ffde;
+            }
+        }
+    }
+}
+
+.navbar .profile{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a{
+        height: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+}
+
+.profileInfo{
+    z-index: 30;
+    width: 25%;
+    height: 100vh;
+    background-color: #2d3436;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(101%);
+    transition: transform 400ms ease;
+}
+
+.closeDiv{
+    width: 100%;
+    height: 60px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+
+    .closeIcon{
+        height: 70%;
+        width: 20%;
+        border: 1px solid #636e72;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 200ms;
+
+        img{
+            height: 65%;
+        }
+
+        &:hover{
+            background-color: #636e72;
+        }
+    }
+}
+
+.profileInfo .profilePicInInfo{
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.profileInfo{
+    h1{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .userName{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .phoneNumber{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 70px;
+    }
+
+    .profileBtn{
+        width: 70%;
+        height: 33px;
+        margin-bottom: 10px;
+        border: 1px solid #636e72;
+        border-radius: 7px;
+        transition: background-color 200ms;
+
+        a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 0.9rem;
+
+        }
+
+        &:hover{
+            background-color: #636e72;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+.orderDiv{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-top: 20vh;
+}
+
+.singleUserOrder{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.orderUserInfo{
+    width: 85%;
+    height: 7vh;
+    background-color: #222831;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    margin-bottom: 3px;
+
+    p{
+        font-family: poppins, sans-serif;
+        font-size: 1.1rem;
+        color: white;
+    }
+
+    .userProfilePic{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.prodictInfo{
+    width: 85%;
+    height: 7vh;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    margin-bottom: 3px;
+
+    .imageDiv{
+        width: 6%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            height: 90%;
+            border-radius: 10px;
+        }
+    }
+
+    p{
+        font-family: poppins, sans-serif;
+        font-size: 1rem;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.changeIndivusalStatus{
+    width: 11%;
+    height: 4vh;
+    z-index: 0;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    overflow: hidden;
+
+
+
+    .boxOrderStatusView{
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: #27ae60;
+        color: white;
+
+        a{
+            color: white;
+            font-family: poppins, sans-serif;
+            text-decoration: none;
+            min-width: 100%;
+            min-height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            &:hover{
+                background-color: #2ecc71;
+            }
+        }
+    }
+
+    .cancleOrderStatusView{
+        background-color: #e9412e;
+
+        &:hover{
+            a{
+                background-color: #af2111;
+            }
+
+        }
+    }
+
+    .defoultchangeIndivusalStatus{
+        font-family: poppins, sans-serif;
+    }
+
+    &:hover{
+        overflow: visible;
+    }
+}
+
+
+.Pid{
+    width: 13%;
+}
+
+.pname{
+    width: 24%;
+    text-align: center;
+}
+
+.pquantity{
+    width: 10%;
+    text-align: center;
+}
+
+.ptime{
+    width: 32%;
+    text-align: center;
+}
+
+.unitPrice{
+    width: 15%;
+    text-align: center;
+}
+
+.orderBottom{
+
+    height: 7vh;
+    width: 85%;
+    background-color: #222831;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+
+    p{
+        font-family: poppins, sans-serif;
+        font-size: 1.1rem;
+        color: white;
+    }
+}
+
+.cancleOrder{
+    width: 200px;
+    height: 4vh;
+    background-color: #e74c3c;
+    border-radius: 10px;
+    transition: 200ms ease;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.171);
+
+    
+
+    a{
+        height: 100%;
+        width: 100%;
+        font-family: poppins, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+    }
+
+    &:hover{
+        background-color: #c0392b;
+        box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.26);
+    }
+}
+
+.orderStatusByn{
+    font-family: poppins, sans-serif;
+    font-size: 1.1rem;
+    color: white;
+
+    a{
+        padding: 7px 40px;
+        border-radius: 10px;
+        height: 5vh;
+        background-color: #2ecc71;
+        color: #ffffff;
+        text-decoration: none;
+        transition: 200ms ease;
+
+        &:hover{
+            background-color: #27ae60;
+        }
+    }
+}
+
+
+.footer{
+    width: 100%;
+    height: 70vh;
+    /* background-color: #1c974f; */
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+.footer .ftitle{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    color: #ffffff;
+    font-size: 4rem;
+    font-weight: 700;
+    padding-left: 5vh;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.footer .flinks{
+    width: 100%;
+    height: 55vh;
+    display: flex;
+
+    p{
+        font-family: "Oswald", sans-serif;
+        color: white;
+        font-size: 25px;
+        font-weight: 600;
+        padding-left: 4vh;
+        padding-top: 10%;
+    }
+
+    .linkDiv1, .linkDiv2{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10vh;
+
+        a{
+            font-family: "Oswald", sans-serif;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            padding-left: 5vh;
+            text-decoration: none;
+            transition: color 300ms;
+
+            &:hover{
+                color: #73ff00;
+            }
+        }
+
+    }
+
+    .smallLink{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-family: "Oswald", sans-serif;
+        padding-left: 10vh;
+
+        a{
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 200ms;
+
+            &:hover{
+                color: #73ff00;
+            }
+        }
+    }
+    
+}
+
+.orderIsCanceled{
+    width: 70%;
+    background-color: #e74c3c;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "poppins", sans-serif;
+    font-weight: 300;
+    margin-bottom: 3px;
+    color: white;
+}
+
+.noMarginInBottom{
+    margin-bottom: 0px !important;
+    border: 1px solid #e74c3c;
+    border-bottom: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+    <title>LogIn</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="formDiv glass">
+
+            <form action="{% url 'loginUser' %}" id="LogInForm" method="POST">
+            {% csrf_token %}
+                <h1>Quic<span class="blue">Pick</span></h1>
+                <div class="inputBox"><input type="tel" name="phoneNumber" id="phoneNumberlogin" placeholder="Phone Number or Username" required></div>
+                <div class="inputBox"><input type="password" name="password" id="passwordlogin" placeholder="Password" required></div>
+                <div class="inputBox submitButton"><input type="submit" value="LogIn"></div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'js/three.r134.min.js' %}"></script>
+    <script src="{% static 'js/vanta.net.min.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+
+</body>
+</html>

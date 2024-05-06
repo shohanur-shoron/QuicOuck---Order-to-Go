@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/signup.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{% static 'style/InputImage.css' %}">
+    <title>SignUp</title>
+</head>
+<body>
+    
+    <div class="mainDiv">
+
+        <canvas></canvas>
+        <div class="logoText">
+            <h1>Quic<span class="blue">Pick</span></h1>
+        </div>
+
+        <div class="formDiv glass">
+
+            <form action="profileCreated" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="center" id="inputView">
+                    <div class="leftDiv">
+                        <div class="inputBox nameInput">
+                            <input type="text" placeholder="First Name" id="firstName" name="firstName" required>
+                            <input type="text" placeholder="Last Name" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="inputBox"><input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required></div>
+                        <div class="inputBox"><input type="email" name="email" placeholder="Email Address" id="email" required></div>
+                        <div class="inputBox"><input type="password" class="" name="password" id="password" placeholder="Password" required></div>
+                        <div class="inputBox"><input type="password" class="" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword" required></div>
+                        <div class="nextPage" onclick="moveRight()" ><p>Next</p></div>
+                    </div>
+                    <div class="rightDiv">
+                        <img onclick="moveBack()" src="{% static 'images/back-arrow-white.png' %}" alt="Back">
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" hidden>
+                        <div class="img-area selectImage" data-img="">
+                            <i class='bx bxs-cloud-upload icon'></i>      
+                            <h3>Upload Profile Picture</h3>
+                            <p>Click to upload image</p>
+                        </div>
+                        <div class="inputBox submitButton"><input class="submit" type="submit" value="SignUp"></div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        {% if messages %}
+            <div class="message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+
+    </div>
+
+
+
+
+    <script src="{% static 'js/signup.js' %}"></script>
+    <script src="{% static 'js/cannas.js' %}"></script>
+</body>
+</html>

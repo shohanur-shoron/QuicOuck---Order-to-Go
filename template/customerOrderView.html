@@ -1,0 +1,50 @@
+{% extends "userBase.html" %}
+
+{% block content %}
+
+    <div class="mainBodyInCustomerOrderPage">
+
+
+        <div class="customerOrderHeader">
+            <div class="storeIdHeaderCustomer displayFlexCustomer">Store ID</div>
+            <div class="storeNameCustomer displayFlexCustomer">Store Info</div>
+            <div class="productIDCustomer displayFlexCustomer">Product ID</div>
+            <div class="productimageCustomer displayFlexCustomer">Product Image</div>
+            <div class="productNameCustomer displayFlexCustomer">Product Name</div>
+            <div class="quantityCustomer displayFlexCustomer">Quantity</div>
+            <div class="unitPriceCustomer displayFlexCustomer">Unit Price</div>
+            <div class="totalPriceCustomer displayFlexCustomer">Total Price</div>
+            <div class="oederStatusCustomer displayFlexCustomer">Order Status</div>
+            <div class="prickUpTimeCustomer displayFlexCustomer">Pick Up Time</div>
+        </div>
+
+        {% for order in orders %}
+            <div class="productInfoinCustomerPage {% if order.status == 'cancelled' %} noMarginInBottom{% endif %}">
+
+                <div class="storeIDinCustomerPage productInfoBG">{{ order.store.id }}</div>
+                <div class="storeNameInCustomerPage productInfoBG">
+                    <img src="{{ order.store.image.url }}" alt="">
+                    <p>{{ order.store.storeName }}</p>
+                </div>
+
+                <div class="productIdInCustomerPage productInfoBG">{{ order.product.id }}</div>
+                <div class="productImageInCustomerPage productInfoBG"><img src="{{ order.product.image.url }}" alt=""></div>
+                <div class="productNameInCustonerPage productInfoBG">{{ order.product.name }}</div>
+                <div class="productQuantityInCustomerPage productInfoBG"><span id="QuantityInCustomarPage">{{ order.quantity }}</span></div>
+                <div class="unitPriceInCustomerPage productInfoBG">৳<span id="unitPriceInCustomerPage">{{ order.product.discountPrice }}</span></div>
+                <div class="totalPriceInCustomerPage productInfoBG">৳<span id="totalPriceInCustomarPage"></span></div>
+                <div class="orderStatusinCustomerPage productInfoBG {% if order.status == 'cancelled' %} redText{% endif %}">{{ order.get_status_display }}</div>
+                {% if order.status == 'cancelled' or order.status == 'picked_up' %}
+                    <div class="productPickUpTimenCustomerPage productInfoBG">{{ order.updated_at }}</div>
+                {% else %}
+                    <div class="productPickUpTimenCustomerPage productInfoBG">{{ order.pickup_time }}</div>
+                {% endif %}
+            </div>
+            {% if order.status == 'cancelled' %}
+                <div class="orderIsCanceled" >Cancel Reason: {{ order.cancelReason }}</div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}

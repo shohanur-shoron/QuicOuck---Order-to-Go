@@ -1,0 +1,762 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #c3f0e8;
+    color: #337a47;
+}
+
+
+
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 7px #49494969;
+    position: fixed;
+    transition: all 200ms;
+}
+
+.navbarTransform{
+    transform: translateY(-11vh);
+}
+
+.navbar .logoAndLinks{
+    height: 100%;
+    display: flex;
+    
+
+    .logo{
+        height: 100%;
+        width: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            height: 70%;
+        }
+    }
+
+    .allLinkls{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        gap: 30px;
+        padding-left: 50px;
+
+        a{
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 7px;
+            transition: background-color 250ms;
+
+            &:hover{
+                background-color: #d1ffde;
+            }
+        }
+    }
+}
+
+.navbar .profile{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a{
+        height: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+}
+
+
+.profileInfo{
+    z-index: 30;
+    width: 25%;
+    height: 100vh;
+    background-color: #2d3436;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(101%);
+    transition: transform 400ms ease;
+}
+
+.closeDiv{
+    width: 100%;
+    height: 60px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+
+    .closeIcon{
+        height: 70%;
+        width: 20%;
+        border: 1px solid #636e72;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 200ms;
+
+        img{
+            height: 65%;
+        }
+
+        &:hover{
+            background-color: #636e72;
+        }
+    }
+}
+
+.profileInfo .profilePicInInfo{
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.profileInfo{
+    h1{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .userName{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .phoneNumber{
+        font-family: "Poppins", sans-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 70px;
+    }
+
+    .profileBtn{
+        width: 70%;
+        height: 33px;
+        margin-bottom: 10px;
+        border: 1px solid #636e72;
+        border-radius: 7px;
+        transition: background-color 200ms;
+
+        a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 0.9rem;
+
+        }
+
+        &:hover{
+            background-color: #636e72;
+        }
+    }
+}
+
+
+
+.storeInfo{
+    height: 60vh;
+    width: 100%;
+    /* background-color: #c3f0e8; */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    .storeInfoinner{
+        height: 45vh;
+        width: 97%;
+        position: relative;
+        overflow: hidden;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        box-shadow: 0px 2px 7px #49494969;
+    }
+}
+
+.storeInfo .storeInfoinner .imageDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #000000;
+
+    video{
+        height: 250%;
+        position: relative;
+        left: 43%;
+        top: -35%;
+        pointer-events: none;
+    }
+}
+
+.storeInfo .storeInfoinner .storetitleDiv{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-family: "Oswald", sans-serif;
+
+    h1{
+        color: white;
+        padding-left: 7vh;
+        font-size: 6rem;
+    }
+
+    h3{
+        color: white;
+        padding-left: 7vh;
+        font-size: 3rem;
+    }
+}
+
+
+.storeCatagory{
+    min-height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    
+    .catagoryText{
+        height: auto;
+
+        h1{
+            font-family: "Oswald", sans-serif;
+            color: black;
+            font-size: 2.5rem;
+            padding-bottom: 15px;
+        }
+    }
+
+    .allCatagaries{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-gap: 25px;
+        justify-items: start;
+        align-items: center;
+        min-height: 25vh;
+        width: 100%;
+        
+    }
+}
+
+.emptyText{
+    height: 100%;
+    width: 762%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 2.5rem;
+    background-color: #dfe6e9;
+    color: #2d3436;
+}
+
+
+.storeCatagory .allCatagaries .catagory{
+    width: 220px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 2px 7px #49494969;
+
+    .cataImage{
+        width: 100%;
+        height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .cataText{
+        font-family: "Oswald", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+.ongoingOrder{
+    min-height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    margin-top: 5vh;
+    
+
+    .orderText{
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        h1{
+            font-family: "Oswald", sans-serif;
+            color: black;
+            font-size: 2.5rem;
+            padding-bottom: 15px;
+        }
+    }
+
+    .orderList{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        grid-gap: 25px;
+        justify-items: start;
+        align-items: center;
+        min-height: 25vh;
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+}
+
+.orderList .orderCard{
+    height: auto;
+    width: 225px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 2px 7px #49494969;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .orderImage{
+        height: 180px;
+        width: 180px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 15px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .orderBy{
+        padding: 4px;
+        padding-top: 10px;
+        p{
+            font-family: "Oswald", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+}
+
+.myProduct{
+    min-height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    margin-top: 5vh;
+
+    .productText{
+        height: auto;
+
+        h1{
+            font-family: "Oswald", sans-serif;
+            color: black;
+            font-size: 2.5rem;
+            padding-bottom: 15px;
+        }
+    }
+
+    .productList{
+        min-height: 25vh;
+        width: 100%;
+    }
+}
+
+
+.mainProduct{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: start;
+}
+
+
+.addItem{
+    height: 500px;
+    width: 250px;
+    box-shadow: 3px 3px 10px #969696, -1px -1px 3px #dddddd;
+    border-radius: 10px;
+    background-color: white;
+    transition: box-shadow 300ms;
+    a{
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        img{
+            height: 15%;
+        }
+        p{
+            font-family: "Oswald", sans-serif;
+            color: black;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.addItem:hover{
+    box-shadow: 3px 3px 15px #747474, -1px -1px 6px #cccccc;
+}
+
+
+.card{
+    height: 500px;
+    width: 250px;
+    overflow: hidden;
+    /* border: 1px solid rgb(112, 112, 112); */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    box-shadow: 3px 3px 10px #969696, -1px -1px 3px #dddddd;
+    transition: box-shadow 300ms;
+}
+
+.card:hover{
+    box-shadow: 3px 3px 15px #747474, -1px -1px 6px #cccccc;
+}
+
+.card .discount{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 60px;
+    z-index: 4;
+    border-bottom-right-radius: 15px;
+    background-color: #3ecd00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+.card .imageForCard{
+    width: 90%;
+    height: 55%;
+    /* border: 1px solid black; */
+    margin-top: 5%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    transition:background-color 200ms;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.catagoryTag{
+    width: 100%;
+    margin-top: 5px;
+
+    p{
+        margin-left: 5%;
+        margin-top: 1px;
+        /* margin-top: 5px; */
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: rgb(129, 129, 129);
+    }
+}
+
+.productTitle{
+    width: 100%;
+
+    h3{
+        font-family: "Poppins", sans-serif;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+}
+
+.productRatting{
+    width: 100%;
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    margin-top: 10px;
+
+    .starImg{
+        height: 20px;
+        width: 20px;
+        margin-left: 5%;
+        margin-right: 3%;
+
+        img{
+            height: 100%;
+        }
+    }
+}
+
+.storeName{
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+
+
+    p{
+        margin-left: 5%;
+
+        .boldtext{
+            font-weight: 700;
+            a{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+}
+
+.pickUpWithPrice{
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: 3%;
+    display: flex;
+
+    .priceDiv{
+        height: 100%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+.pickUpWithPrice .priceDiv .discountPrice{
+    height: 60%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #337a47;
+}
+.pickUpWithPrice .priceDiv .regularPrice{
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    color: rgb(131, 131, 131);
+}
+
+.pickUpBtn{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pickUpBtn{
+    .editItem, .removeItem{
+        width: 50%;
+        height: 90%;
+        /* background-color: white; */
+        border-radius: 7px;
+        transition: background-color 200ms;
+
+
+        a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
+            transition: box-shadow 200ms;
+
+            img{
+                height: 70%;
+            }
+
+            &:hover{
+                box-shadow: 3px 3px 10px #969696, -1px -1px 3px #dddddd;
+            }
+        }
+
+    }
+
+    .removeItem:hover{
+        background-color: #e74d3c98;
+    }
+}
+
+
+
+
+
+.footer{
+    width: 100%;
+    height: 70vh;
+    /* background-color: #1c974f; */
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+.footer .ftitle{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    color: #ffffff;
+    font-size: 4rem;
+    font-weight: 700;
+    padding-left: 5vh;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.footer .flinks{
+    width: 100%;
+    height: 55vh;
+    display: flex;
+
+    p{
+        font-family: "Oswald", sans-serif;
+        color: white;
+        font-size: 25px;
+        font-weight: 600;
+        padding-left: 4vh;
+        padding-top: 10%;
+    }
+
+    .linkDiv1, .linkDiv2{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10vh;
+
+        a{
+            font-family: "Oswald", sans-serif;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            padding-left: 5vh;
+            text-decoration: none;
+            transition: color 300ms;
+
+            &:hover{
+                color: #73ff00;
+            }
+        }
+
+    }
+
+    .smallLink{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-family: "Oswald", sans-serif;
+        padding-left: 10vh;
+
+        a{
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 200ms;
+
+            &:hover{
+                color: #73ff00;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,255 @@
+
+.card{
+    height: 500px;
+    width: 250px;
+    box-shadow: 2px 2px 4px #b4b4b4;
+    transition: box-shadow 300ms;
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover{
+    box-shadow: 3px 3px 10px #969696, -1px -1px 3px #dddddd;
+}
+
+.card .discount{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 60px;
+    z-index: 4;
+    border-bottom-right-radius: 15px;
+    background-color: #3ecd00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+.card .imageForCard{
+    width: 90%;
+    height: 55%;
+    /* border: 1px solid black; */
+    margin-top: 5%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    transition:background-color 200ms;
+
+    .topLayerinImg{
+        position: absolute;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        background-color: #0000004f;
+        transition: background-color 200ms, opacity 200ms;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/*#00E324*/
+
+.card .topLayerinImg .addToCart,
+.card .topLayerinImg .addToWishList{
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+
+    a{
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        pointer-events: all !important;
+        z-index: 5;
+
+        img{
+            scale: 0.6;
+        }
+    }
+}
+
+.card a .topLayerinImg .addToCart{
+    margin-right: 7px;
+}
+
+
+.removeLayer {
+    opacity: 0!important;
+    pointer-events: none!important;
+    z-index: -1;
+    transition-delay: 200ms;
+}
+
+.catagoryTag{
+    width: 100%;
+    margin-top: 5px;
+
+    p{
+        margin-left: 5%;
+        margin-top: 1px;
+        /* margin-top: 5px; */
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: rgb(129, 129, 129);
+    }
+}
+
+.productTitle{
+    width: 100%;
+
+    a{
+        text-decoration: none;
+
+        h3{
+            font-family: "Poppins", sans-serif;
+            margin-left: 5%;
+            margin-right: 5%;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: black;
+        }
+    }
+}
+
+.productRatting{
+    width: 100%;
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    margin-top: 10px;
+
+    .starImg{
+        height: 20px;
+        width: 20px;
+        margin-left: 5%;
+        margin-right: 3%;
+
+        img{
+            height: 100%;
+        }
+    }
+}
+
+.storeName{
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+
+
+    p{
+        margin-left: 5%;
+
+        .boldtext{
+            font-weight: 700;
+            a{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+}
+
+.pickUpWithPrice1{
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: 3%;
+    display: flex;
+
+    .priceDiv1{
+        height: 100%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+.pickUpWithPrice1 .priceDiv1 .discountPrice1{
+    height: 60%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #337a47;
+}
+.pickUpWithPrice1 .priceDiv1 .regularPrice1{
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    color: rgb(131, 131, 131);
+}
+
+.pickUpBtn{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    button{
+        width: 100%;
+        height: 80%;
+        background-color: #2ecc71;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 150ms;
+    }
+}
+
+.pickUpBtn button:hover{
+    background-color: #27ae60;
+}
+
+.pickUpBtn button a{
+    text-decoration: none;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    
+    height: 100%;
+    width: 100%;
+
+    p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+}

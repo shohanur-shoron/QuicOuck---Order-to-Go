@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'style/homePage.css' %}">
+    <title>QuicPick</title>
+</head>
+<body>
+
+    <div class="homePage">
+        <div class="navBar">
+            <div class="logo">
+                <h1>Quic<span class="blue">Pick</span></h1>
+            </div>
+            <div class="btns">  
+                {% if user.is_authenticated %}
+                    <a href="store/"><div class="btn1 btn"><h3>Store</h3></div></a>
+                    <a href="accounts/logout/"><div class="btn2 btn"><h3>LogOut</h3></div></a>
+                {% else %}
+                    <a href="accounts/signup/"><div class="btn1 btn"><h3>SignUp</h3></div></a>
+                    <a href="accounts/login/"><div class="btn2 btn"><h3>LogIn</h3></div></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="homeImage demo-3">
+            <main>
+                <div class="content">
+                    <div class="grid grid--img">
+                        <div class="grid__item pos-1"><div class="grid__item-img" style="background-image:url({% static 'images/HomePageImage1.jpg' %});"></div></div>
+                        <div class="grid__item pos-2"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage2.jpg' %});"></div></div>
+                        <div class="grid__item pos-3"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage4.jpg' %});"></div></div>
+                        <div class="grid__item pos-4"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage2.jpg' %});"></div></div>
+                        <div class="grid__item pos-5"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage3.jpg' %});"></div></div>
+                        <div class="grid__item pos-6"><div class="grid__item-img" style="background-image:url({% static 'images/HomePageImage1.jpg' %});"></div></div>
+                        <div class="grid__item pos-7"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage3.jpg' %});"></div></div>
+                        <div class="grid__item pos-8"><div class="grid__item-img" style="background-image:url({% static 'images/HomePageImage1.jpg' %});"></div></div>
+                        <div class="grid__item pos-9"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage4.jpg' %});"></div></div>
+                        <div class="grid__item pos-10"><div class="grid__item-img" style="background-image:url({% static 'images/HomeImage2.jpg' %});"></div></div>
+                        <div class="grid__item pos-11"><h2>Easy</h2></div>
+                        <div class="grid__item pos-12"><h2>Fresh</h2></div>
+                        <div class="grid__item pos-13"><h2>Delicious</h2></div>
+                    </div>
+                </div>
+            </main>
+            <svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
+                <circle class="cursor__inner" cx="40" cy="40" r="20"></circle>
+            </svg>
+            <script src="{% static 'js/demo3.b516845c.js' %}"></script>
+        </div>
+    </div>
+    
+    <div class="cointaner">
+            
+        <div class="menuItem totalHeight" id="menuItem">
+            <h1 class="peralax rellax" data-rellax-speed="-5" id="peralax">MENU</h1>
+                
+            <div class="leftText menuText" id="">
+                <h1>Browse the Menu</h1>
+                <p>Browse the menus of your favorite local restaurants and stores.</p>
+            </div>
+            <div class="rightImage menuImage">
+                <img src="{% static 'images/menu.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="orderItem totalHeight" id="target-div">
+            <h1 class="peralax2 rellax" data-rellax-speed="-5" id="peralax">ORDER</h1>    
+            <div class="leftImage">
+                <img src="{% static 'images/order.png' %}" alt="">
+            </div>
+            <div class="rightText orderText">
+                <h1>Place your order online</h1>
+                <p>Place your order online from the comfort of your couch.</p>
+            </div>
+        </div>
+
+        <div class="pickItem totalHeight">
+            <h1 class="peralax3 rellax" data-rellax-speed="-5" id="peralax">PICK-UP</h1>
+            <div class="leftText pickText">
+                <h1>Select a pick-up time</h1>
+                <p>Select a pick-up time that works for you.</p>
+            </div>
+            <div class="rightImage">
+                <img src="{% static 'images/pickup-removebg-preview.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="storeItem totalHeight">
+            <h1 class="peralax4 rellax" data-rellax-speed="-5" id="peralax">STORE</h1>
+            <div class="leftImage">
+                <img src="{% static 'images/store-removebg-preview.png' %}" alt="">
+            </div>
+            <div class="rightText storeText">
+                <h1>Head to the store, skip the line</h1>
+                <p>Head to the store and skip the line – your order will be waiting!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="StoreSignup">
+        <canvas></canvas>
+
+
+        <div class="leftDivStore">
+            <h1>Quic<span class="blue">Pick</span> for Business</h1>
+            <!-- <h3>Join QuickPick and grow your business!</h3> -->
+            <h3>Join QuickPick and grow your business! Offer convenient order-to-go for your customers.</h3>
+            <h2 class="textScramble"></h2>
+        </div>
+        <div class="rightDivStore">
+            <a href="accounts/sotreSignUp/">
+                <div class="joinBtn">
+                    <h3>Join Quick<span class="blue">Pick</span></h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer"></div>
+
+
+
+    <script src="{% static 'js/lenis-min.js' %}"></script>
+    <script src="{% static 'js/lenis.js' %}"></script>
+    <script src="{% static 'js/relax-min.js' %}"></script>
+    <script src="{% static 'js/cannas.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/scrollReload.js' %}"></script>
+    <script src="{% static 'js/TextScramble.js' %}"></script>
+</body>
+</html>

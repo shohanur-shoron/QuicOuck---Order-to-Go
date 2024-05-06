@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/storeOrderView.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="navbar" id="navbar">
+        <div class="logoAndLinks">
+            <div class="logo">
+                <img src="{% static 'images/logo2.png' %}" alt="">
+            </div>
+            <div class="allLinkls">
+                <a href="{% url 'storeHome' %}">Home</a>
+                <a href="{% url 'productPage' %}">Products</a>
+                <a href="{% url 'storeOrder' %}">Orders</a>
+                <a href="{% url 'storeOrderHistory' %}">Order History</a>
+            </div>
+        </div>
+        <div class="profile" onclick="openProfile()">
+            <a href="#">
+                {% if user.profile.image %}
+                    <img src="{{ user.profile.image.url }}" alt="">
+                {% else %}
+                    <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                {% endif %}
+            </a>
+        </div>
+    </div>
+
+    <div class="profileInfo" id="profileInfo">
+        <div class="closeDiv"><div class="closeIcon" onclick="closeProfile()"><img src="{% static 'images/icons8-cross-48.png' %}" alt=""></div></div>
+        <div class="profilePicInInfo">
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <img src="{% static 'images/WhatsApp_Image_2023-10-30_at_6.03.22_PM_1.jpeg' %}" alt="">
+                {% else %}
+                    <img src="{{ user.profile.image.url }}" alt="Profile Picture"/>
+                {% endif %}
+            {% else %}
+                <img src="{% static 'images/WhatsApp_Image_2023-10-30_at_6.03.22_PM_1.jpeg' %}" alt="">
+            {% endif %}
+        </div>
+        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        <div class="userName">{{ user.username }}</div>
+        <div class="phoneNumber">{{ user.profile.phone }}</div>
+        <div class="editProfile profileBtn"><a href="{% url 'editProfilePage' user.profile.id %}">Edit Profile</a></div>
+        <div class="changePassword profileBtn"><a href="{% url 'changePasswordPage' user.profile.id %}">Change Password</a></div>
+        <div class="logout profileBtn"><a href="{% url 'logOutUser' %}">Log Out</a></div>
+    </div>
+
+
+    <div class="orderDiv">
+    {% for totalBill,  orders in zipped %}
+        <div class="singleUserOrder">
+            <div class="orderUserInfo" style="width: 70%;">
+                <div class="userProfilePic"><img src="{{ orders.first.user.image.url }}" alt=""></div>
+                <p>Name: {{ orders.first.user.user.first_name }} {{ orders.first.user.user.last_name }}</p>
+                <p>PickUp ID: {{ orders.first.user.user.id }}</p>
+                <p>Phone: {{ orders.first.user.phone }}</p>
+                <p>Order Time: {{ orders.first.created_at }}</p>
+            </div>
+
+            {% for order in orders %}
+                <div class="prodictInfo {% if order.status == 'cancelled' %} noMarginInBottom{% endif %}" style="width: 70%; justify-content: space-between;">
+                    <p class="Pid">Product ID: {{ order.product.id }}</p>
+                    <div class="imageDiv"><img src="{{ order.product.image.url }}" alt=""></div>
+                    <p class="pname">{{ order.product.name }}</p>
+                    <p class="pquantity">Quantity: {{ order.quantity }}</p>
+                    <p class="unitPrice">Unit Price: ৳{{ order.product.discountPrice }}</p>
+                    <div class="changeIndivusalStatus">
+                        {% if order.status == 'cancelled' %}
+                            <div class="defoultchangeIndivusalStatus boxOrderStatusView" style="background-color: #e74c3c">{{ order.get_status_display }}</div>
+                        {% else %}
+                            <div class="defoultchangeIndivusalStatus boxOrderStatusView">{{ order.get_status_display }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if order.status == 'cancelled' %}
+                    <div class="orderIsCanceled" >Cancel Reason: {{ order.cancelReason }}</div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="orderBottom" style="width: 70%;">
+                <p id="totalPrice">Total Price: ৳{{ totalBill }}</p>
+                <div> </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="footer">
+        <div class="ftitle">
+            @QuicPick
+        </div>
+        <div class="flinks">
+            <p>Keep Exploring</p>
+            <div class="linkDiv1">
+                <a href="#">What we do</a>
+                <a href="#">What we are</a>
+                <a href="#">Out Impact</a>
+                <a href="#">Our Team</a>
+            </div>
+            <div class="linkDiv2">
+                <a href="#">What we do</a>
+                <a href="#">What we are</a>
+                <a href="#">Out Impact</a>
+                <a href="#">Our Team</a>
+            </div>
+            <div class="smallLink">
+                <a href="#">Press</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">QuicPick Subscription</a>
+                <a href="#">Careers</a>
+                <a href="#">Help Center</a>
+                <a href="#">QuicPick Deals</a>
+                <a href="#">Dine-in</a>
+                <a href="#">Become an Affiliate</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'js/lenis.min.js' %}"></script>
+    <script src="{% static 'js/lenis.js' %}"></script>
+    <script src="{% static 'js/vendor.js' %}"></script>
+    <script src="{% static 'js/scrollReload.js' %}"></script>
+
+</body>
+</html>

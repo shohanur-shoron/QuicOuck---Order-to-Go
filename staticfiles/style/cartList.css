@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: #c3f0e8;
+    color: #337a47;
+}
+
+.mainCartDiv{
+    width: 100%;
+    min-height: 80vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.mainCartDiv .cartItemList{
+    width: 75%;
+    
+    table{
+        width: 100%;
+        height: 7vh;
+
+        tr th{
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            background-color: #48c26b;
+            height: 4vh;
+            color: white;
+        }
+        tr td{
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            text-align: center;
+            height: 8vh;
+            overflow: hidden;
+            img{
+                height: 100%;
+                
+            }
+        }
+
+        .quantityInCartItem{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .box101{
+                height: 45px;
+                width: 50px;
+                border: 1px solid black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                    color: black;
+                    font-family: "Poppins", sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .actionBtnInCart{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .actionBtnInCartinner{
+                width: 80%;
+                height: 40px;
+                border: 1px solid black;
+                background-color: white;
+                border-radius: 10px;
+                transition: 200ms ease;
+                a{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    color: black;
+                }
+
+                &:hover{
+                    background-color: #f0ccc3;
+                }
+            }
+            
+        }
+
+        .rowInCartItem{
+            border: 1px solid red;
+        }
+
+        .timeInputDiv{
+            width: 100%;
+            position: relative;
+
+            input{
+                width: 90%;
+                height: 40px;
+                border: 1px solid black;
+                outline: none;
+                text-align: center;
+                font-family: "Poppins", sans-serif;
+            }
+            input[type="datetime-local"]{
+                position: absolute;
+                z-index: -1;
+            }
+        }
+
+
+    }
+}
+
+.cartItemSummary{
+    width: 75%;
+    height: 7vh;
+    background-color: #48c26b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 25px;
+
+    .totalCartMoney{
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 1.2rem;
+        padding-left: 25px;
+    }
+
+    input[type="submit"]{
+        width: 180px;
+        height: 35px;
+        border: none;
+        box-shadow: 2px 2px 0px #337a47;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 200ms ease;
+
+        &:hover{
+            box-shadow: 5px 5px 0px #337a47;
+            scale: 1.05;
+        }
+    }
+}

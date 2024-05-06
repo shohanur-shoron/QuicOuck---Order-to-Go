@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/orderSuccess.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="orderSuccessMainDiv">
+        <div class="imageDivinOrderSuccess"><img src="{% static 'images/orderSuccess.png' %}" alt=""></div>
+        <div class="textDivInOrderSuccess">
+            <h1>Your order is successfully placed</h1>
+            <p>Get ready to pick up your order</p>
+            <h2>Your Pick-up id is <span class="PickUpIdInSuccessPage">{{ user.id }}</span></h2>
+        </div>
+        <div class="orderStatusBarInSuccessPage">
+            <div class="statusBoxesinSuccessPage greenColorTextInSuccess">
+                <div class="progressBarInSuccessPage pending"></div>
+                <h1>Pending</h1>
+            </div>
+            <div class="statusBoxesinSuccessPage">
+                <div class="progressBarInSuccessPage"></div>
+                <h1>Ready</h1>
+            </div>
+            <div class="statusBoxesinSuccessPage">
+                <div class="progressBarInSuccessPage"></div>
+                <h1>Picked Up</h1>
+            </div>
+        </div>
+
+{#        <div class="orderStatusBarInSuccessPage cancleOrderInSuccess">#}
+{#            <h1>Your oder have been canceled</h1>#}
+{#            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. #}
+{#                Harum ratione rem sequi temporibus. Similique mollitia vero#}
+{#                 harum cumque numquam consequuntur culpa facilis dolorem porro.#}
+{#                  Maiores quidem, quisquam aperiam neque totam quibusdam unde harum enim aspernatur #}
+{#            </p>#}
+{#        </div>#}
+
+        <div class="homeBtnInSuccess"><a href="{% url 'storeHome' %}">Go to Home</a></div>
+
+    </div>
+</body>
+</html>

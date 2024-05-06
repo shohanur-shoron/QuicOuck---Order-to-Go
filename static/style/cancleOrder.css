@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cancleOrderForm{
+    width: 100%;
+    height: 100vh;
+    background-color: #ff6b6b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60%;
+        width: 50%;
+
+        textarea{
+            width: 80%;
+            border: 1px solid white;
+            background-color: transparent;
+            margin-bottom: 25px;
+            outline: none;
+            font-family: poppins, sans-serif;
+            resize: none;
+            color: white;
+            padding: 5px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        input[type="submit"]{
+            width: 80%;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            font-family: poppins, sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            cursor: pointer;
+            outline: none;
+            transition: all 200ms;
+
+            &:hover{
+                background-color: white;
+                color: #ff6b6b;
+            }
+        }
+    }
+}
+
+.glass{
+    background: rgba(255, 255, 255, 0.111);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+}

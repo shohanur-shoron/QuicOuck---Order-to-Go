@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/userBase.css' %}">
+    <link rel="stylesheet" href="{% static 'style/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'style/card2.css' %}">
+    <link rel="stylesheet" href="{% static 'style/viewProduct.css' %}">
+    <link rel="stylesheet" href="{% static 'style/cartList.css' %}">
+    <link rel="stylesheet" href="{% static 'style/orderSuccess.css' %}">
+    <link rel="stylesheet" href="{% static 'style/customerOrderView.css' %}">
+    <title>QuicPick</title>
+</head>
+<body>
+    
+    <div class="navbar" id="navBar">
+        <div class="topNavBar">
+            <div class="logo"><img src="{% static 'images/logo2.png' %}" alt=""></div>
+            <div class="searchBox">
+                <form action="{% url 'searchProducts' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="searchText" id="searchBoxTextInput1" placeholder="Search for items..." required>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <div class="curtAndProfile">
+                <div class="wishList equal">
+                    <div class="equalInsideDiv">
+                        <a href="{% url 'wishListProduct' %}">
+                            <img src="{% static 'images/icons8-heart-100.png' %}" alt="">
+                            <div class="countDivForWishlist"><p>{{ wishListLen }}</p></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="cart equal">
+                    <div class="equalInsideDiv">
+                        <a href="{% url 'cartItem' %}">
+                            <img src="{% static 'images/icons8-cart-100.png' %}" alt="">
+                            <div class="countDivForWishlist"><p>{{ cartLen }}</p></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="profileImage equal">
+                    <div class="profileImageInside" onclick="openProfile()">
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                {% if user.profile.image %}
+                                    <img src="{{ user.profile.image.url }}" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                                {% endif %}
+                            {% else %}
+                                <img src="{{ user.profile.image.url }}" alt="Profile Picture"/>
+                            {% endif %}
+                        {% else %}
+                            <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomNavbar">
+            <div class="catagoryBox">
+                <div class="insideCatagory">
+                    <div class="mainCatatagory">
+                        <div class="catagoryText">
+                            <img src="{% static 'images/icons8-category-100.png' %}" alt="">
+                            <p>Brows Catagory</p>
+                        </div>
+                        <img src="{% static 'images/icons8-down-100.png' %}" alt="">
+                    </div>
+                    {% for category in catagories %}
+                        <div class="catagoryOption"><a href="{% url 'categoryProducts' category.id %}">{{ category.name }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="navLinks">
+                <a href="{% url 'storeHome' %}">Home</a>
+                <a href="{% url 'allTheStore' %}">Shop</a>
+                <a href="{% url 'discountedProducts' %}">Deals</a>
+                <a href="{% url 'customerOrderView' %}">My Orders</a>
+                <a href="{% url 'customerOrderHistoryView' %}">Order History</a>
+            </div>
+            <div class="searchBox2" id="searchBox">
+                <form action="{% url 'searchProducts' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" id="searchBoxTextInput2" name="searchText" placeholder="Search for items..." required>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+
+            <div class="curtAndProfile curtAndProfile2">
+                
+                <div class="cartItems1" id="cartItems1">
+                    <div class="wishList equal">
+                        <div class="equalInsideDiv">
+                            <a href="{% url 'wishListProduct' %}">
+                                <img src="{% static 'images/icons8-heart-100.png' %}" alt="">
+                                <div class="countDivForWishlist"><p>{{ wishListLen }}</p></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cart equal">
+                        <div class="equalInsideDiv">
+                            <a href="{% url 'cartItem' %}">
+                                <img src="{% static 'images/icons8-cart-100.png' %}" alt="">
+                                <div class="countDivForWishlist"><p>{{ cartLen }}</p></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profileImage equal">
+                        <div class="profileImageInside" onclick="openProfile()">
+                            {% if user.is_authenticated %}
+                                {% if user.is_superuser %}
+                                    {% if user.profile.image %}
+                                        <img src="{{ user.profile.image.url }}" alt="">
+                                    {% else %}
+                                        <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                                    {% endif %}
+                                {% else %}
+                                    <img src="{{ user.profile.image.url }}" alt="Profile Picture"/>
+                                {% endif %}
+                            {% else %}
+                                <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="help" id="infoRightBtm">
+                    <img src="{% static 'images/icons8-support-100.png' %}" alt="">
+                    <div class="textDivInHelp">
+                        <h1 class="greenText">1900 - 8887</h1>
+                        <p>24/7 Support Center</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="navbarCover"></div>
+    <div class="profileInfo" id="profileInfo">
+        <div class="closeDiv"><div class="closeIcon" onclick="closeProfile()"><img src="{% static 'images/icons8-cross-48.png' %}" alt=""></div></div>
+        <div class="profilePicInInfo">
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    {% if user.profile.image %}
+                        <img src="{{ user.profile.image.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+                    {% endif %}
+                {% else %}
+                    <img src="{{ user.profile.image.url }}" alt="Profile Picture"/>
+                {% endif %}
+            {% else %}
+                <img src="{% static 'images/PXL_202IT (1).jpg' %}" alt="">
+            {% endif %}
+        </div>
+        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        {% if user.is_superuser %}
+            <div class="userName">{{ user.username }} - Admin</div>
+        {% else %}
+            <div class="userName">{{ user.username }}</div>
+        {% endif %}
+        <div class="phoneNumber">{{ user.profile.phone }}</div>
+        <div class="editProfile profileBtn"><a href="{% url 'editProfilePage' user.profile.id %}">Edit Profile</a></div>
+        <div class="changePassword profileBtn"><a href="{% url 'changePasswordPage' user.profile.id %}">Change Password</a></div>
+        <div class="logout profileBtn"><a href="{% url 'logOutUser' %}">Log Out</a></div>
+    </div>
+
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+
+    <div class="footer">
+        <div class="ftitle">
+            @QuicPick
+        </div>
+        <div class="flinks">
+            <p>Keep Exploring</p>
+            <div class="linkDiv1">
+                <a href="#">What we do</a>
+                <a href="#">What we are</a>
+                <a href="#">Out Impact</a>
+                <a href="#">Our Team</a>
+            </div>
+            <div class="linkDiv2">
+                <a href="#">What we do</a>
+                <a href="#">What we are</a>
+                <a href="#">Out Impact</a>
+                <a href="#">Our Team</a>
+            </div>
+            <div class="smallLink">
+                <a href="#">Press</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">QuicPick Subscription</a>
+                <a href="#">Careers</a>
+                <a href="#">Help Center</a>
+                <a href="#">QuicPick Deals</a>
+                <a href="#">Dine-in</a>
+                <a href="#">Become an Affiliate</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'js/userBase.js' %}"></script>
+    <script src="{% static 'js/scrollReload.js' %}"></script>
+    <script src="{% static 'js/lenis.min.js' %}"></script>
+    <script src="{% static 'js/lenis.js' %}"></script>
+    <script src="{% static 'js/card.js' %}"></script>
+    <script src="{% static 'js/viewProduct.js' %}"></script>
+    <script src="{% static 'js/cartItem.js' %}"></script>
+    <script src="{% static 'js/customerOrderView.js' %}"></script>
+</body>
+</html>

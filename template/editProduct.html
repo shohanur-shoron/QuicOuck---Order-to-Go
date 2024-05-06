@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/addProduct.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'style/InputImage.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas id="animation"></canvas>
+    <div class="logoDiv">@QuicPick</div>
+    <div class="formDiv">
+        <form action="{% url 'editProduct' product.id %}" method="POST" class="glass" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="Title" value="{{ product.name }}" placeholder="Product Title">
+            <textarea name="prductDescription" id="prductDescription" placeholder="Write Product Description...">{{ product.description }}</textarea>
+            <input type="number" name="price" value="{{ product.price }}" placeholder="Product Price">
+            <input type="number" name="discountPrice" value="{{ product.discountPrice }}" id="discountPrice" placeholder="Discount Price">
+            <select name="catagoryTag" id="catagoryTag">
+                <option value="None">Select A Catagory</option>
+                <option selected value="{{ product.category.id }}">{{ product.category.name }}</option>
+                {% for category in catagories %}
+                    {% if product.category.id != category.id %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            <input type="file" id="imageUpload" src="{{ product.image.url }}" name="imageUpload" accept="image/*" hidden>
+            <div class="img-area selectImage" data-img="">
+                <i class='bx bxs-cloud-upload icon'></i>
+                <h3>Upload Product Image</h3>
+                <p>Click to upload image</p>
+            </div>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+
+    <script src="{% static 'js/metaball.js' %}"></script>
+    <script src="{% static 'js/addProduct.js' %}"></script>
+</body>
+</html>

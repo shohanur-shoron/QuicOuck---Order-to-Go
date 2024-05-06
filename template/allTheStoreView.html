@@ -1,0 +1,19 @@
+{% extends "userBase.html" %}
+
+{% block content %}
+    {% load static %}
+    <div class="MainProductDiv">
+
+        {% for store in allStore %}
+            <div class="storeCardInAllStorePage">
+                <div class="storeImageInAllStorePage">
+                    <img src="{{ store.image.url }}" alt="">
+                </div>
+                <div class="storeNameInAllStorePage">
+                    <p><a href="{% url 'singleStoreProduct' store.id %}"><strong>{{ store.storeName }}</strong></a></p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}

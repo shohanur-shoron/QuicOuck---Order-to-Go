@@ -1,0 +1,72 @@
+{% extends "userBase.html" %}
+
+{% block content %}
+    {% load static %}
+    <h1 class="storeNameStyleInSingleStoreProduct">Search result for: <strong>{{ search_text }}</strong></h1>
+    <div class="MainProductDiv">
+
+        {% for product in searchProducts %}
+            <div class="card">
+                {% if product.discountPersentage != 0.0 %}
+                    <div class="discount">
+                        <p>{{ product.discountPersentage }}% off</p>
+                    </div>
+                {% endif %}
+                <div class="imageForCard" id="imageForCard">
+                    <div class="topLayerinImg " id="topLayer">
+                        <div class="addToCart" id="addToCart">
+                            {% if product in cartProducts %}
+                                <a id="CartButton" href="{% url 'removeFromCart' product.id %}">
+                                    <img id="addToCartImage" src="{% static 'images/icons8-cart-green.png' %}" alt="">
+                                </a>
+                            {% else %}
+                                <a id="CartButton" href="{% url 'addToCart' product.id %}">
+                                    <img id="addToCartImage" src="{% static 'images/icons8-cart-white.png' %}" alt="">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="addToWishList" id="addToWishList">
+                            {% if product in wishListProduct %}
+                                <a id="wishlistButton" href="{% url 'removeFromWishlist' product.id %}">
+                                    <img id="addToWishListImage" src="{% static 'images/icons8-hart-green.png' %}" alt="">
+                                </a>
+                            {% else %}
+                                <a id="wishlistButton" href="{% url 'addToWishlist' product.id %}">
+                                    <img id="addToWishListImage" src="{% static 'images/icons8-heart-white.png' %}" alt="">
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <img src="{{ product.image.url }}" alt="">
+                </div>
+        
+                <div class="catagoryTag">
+                    <p>{{ product.category.name }}</p>
+                </div>
+        
+                <div class="productTitle">
+                    <a href="{% url 'viewProduct' product.id %}"><h3>{{ product.name }}</h3></a>
+                </div>
+        
+                <div class="productRatting">
+                    <div class="starImg"><img src="{% static 'images/icons8-star-96.png' %}" alt=""></div>
+                    <p>{{ product.avgReviewPoint }} ({{ product.totalReviews }})</p>
+                </div>
+                <div class="storeName">
+                    <p>by <span class="boldtext"><a href="{% url 'singleStoreProduct' product.store.id %}">{{ product.store.storeName }}</a></span></p>
+                </div>
+        
+                <div class="pickUpWithPrice1">
+                    <div class="priceDiv1">
+                        <div class="discountPrice1">৳{{ product.discountPrice }}</div>
+                        <div class="regularPrice1"><del>৳{{ product.price }}</del></div>
+                    </div>
+                    <div class="pickUpBtn">
+                        <button><a id="pickUpBtnLink" href="{% url 'viewProduct' product.id %}"><p>Pick  Up Now</p></a></button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}

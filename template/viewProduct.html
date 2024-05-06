@@ -1,0 +1,90 @@
+{% extends "userBase.html" %}
+
+{% block content %}
+    {% load static %}
+
+    <form action="{% url 'orderProduct' product.id %}" method="POST">
+    {% csrf_token %}
+        <div class="productInfo">
+            <div class="productImage">
+                <img src="{{ product.image.url }}" alt="">
+            </div>
+    
+            <div class="productDescription">
+                <h1 class="ProductName">{{ product.name }}</h1>
+                <h3 class="productId">Product ID: <span class="greentext">{{ product.id }}</span></h3>
+                <p class="productDetail">{{ product.description }}
+                </p>
+
+                <div class="priceDiv">
+                    <h3>Offer Price: <span id="currentPrice">{{ product.discountPrice }}</span>৳</h3>
+                    <h3>Regular Price: {{ product.price }}৳</h3>
+                    <h3>Total Price: <span id="totalPrice">{{ product.discountPrice }}</span>৳</h3>
+                </div>
+                <div class="quantity">
+                    <div class="quantityminus quantitybox" id="quantityminus"><span class="uncopyable">-</span></div>
+                    <div class="quantityinput quantitybox" id="quantityinput"><input type="number" min="1" class="quantity-input" name="quantity" id="quantityInput" value="1"></div>
+                    <div class="quantityplus quantitybox" id="quantityplus"><span class="uncopyable">+</span></div>
+                </div>
+    
+                <div class="dateAndTime">
+                    <h3 class="uncopyable">PickUp Time: </h3>
+                    <div class="timeInputDiv">
+                        <input type="datetime-local" id="pickup_time">
+                        <input type="text" id="pickup_time_display" name="pickUpTime" value="Now" readonly>
+                    </div>
+                </div>
+    
+                <div class="pickUpbtn">
+                    <div class="pickUp btn"><button type="submit" name="submit_action" value="pickup">Pick Up</button></div>
+                    {% if product in cartProducts %}
+                        <div class="addtoCart btn"><button name="submit_action" value="add_to_cart"><a href="{% url 'removeFromCart' product.id %}">Remove from Cart</a></button></div>
+                    {% else %}
+                        <div class="addtoCart btn"><button name="submit_action" value="add_to_cart"><a href="{% url 'addToCart' product.id %}">Add to Cart</a></button></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    </form>
+
+    <div class="productReview">
+        <div class="reviewTitle"><h1>Product Reviews</h1></div>
+        <div class="underLineDiv"><div class="mainUnderline"></div></div>
+
+        <form action="{% url 'addReview' product.id %}" method="POST" class="reviewForm">
+            {% csrf_token %}
+            <select class="selectStaes" name="stars" id="stars">
+                <option value="0">0 Star</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Star</option>
+                <option value="3">3 Star</option>
+                <option value="4">4 Star</option>
+                <option value="5">5 Star</option>
+            </select>
+            <input type="text" name="write_review" id="write_review" placeholder="Write a Review...">
+            <div class="underLine"><div class="innerUnderLine1"></div><div class="innerUnderLine2"></div></div>
+            <input type="submit" value="Post">
+        </form>
+
+
+        {% if totalReviews != 0 %}
+            {% for review in reviews %}
+                <div class="userReviews">
+                    <div class="profilePicDiv">
+                        <div class="imageDivinReview"><img src="{{ review.user.profile.image.url }}" alt=""></div>
+                    </div>
+                    <div class="mainReviewText">
+                        <h3>@{{ review.user.first_name }} {{ review.user.last_name }} - {{ review.ratingStar }}</h3>
+                        <p>{{ review.comment }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="noReviews">No Reviews Yet</div>
+        {% endif %}
+
+
+    </div>
+
+{% endblock content %}

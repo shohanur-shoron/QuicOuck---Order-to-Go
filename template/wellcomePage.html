@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/welcome.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>WELCOME <span class="username">{{username}}</span></h1>
+        <p>Make sure to remember your username or use Phone number to Login</p>
+        <a href="{% url 'index' %}"><div class="backBtn"><p>Back To Home</p></div></a>
+        <a href="{% url 'login' %}"><div class="backBtn login"><p>LogIn</p></div></a>
+    </div>
+</body>
+</html>

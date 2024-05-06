@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/cancleOrder.css' %}">
+    <title>cancel Order</title>
+</head>
+<body>
+    <div class="cancleOrderForm">
+        <form action="{% url 'makeStatusToCancle' ID %}" method="POST" class="glass">
+            {% csrf_token %}
+            <textarea name="cancleReason" placeholder="Write cancel reason here.." id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Cancel">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "userBase.html" %}
+
+{% block content %}
+    {% load static %}
+    <form action="{% url 'orderAllCartProduct' %}" method="POST">
+    {% csrf_token %}
+        <div class="mainCartDiv">
+            <div class="cartItemList">
+                <table>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Pick Up Time</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for cart in carts %}
+                        <tr class="rowInCartItem">
+                            <td class="cartImageInTable"><img src="{{ cart.product.image.url }}" alt=""></td>
+                            <td>{{ cart.product.name }}</td>
+                            <td>৳<span id="moneyInCartItem1">{{ cart.product.discountPrice }}</span></td>
+                            <td class="quantityInCartItem">
+                                <div class="quanDecreesDivInCart box101" style="border-right: none;"><a href="{% url 'decreaseCartQuantity' cart.product.id %}">-</a></div>
+                                <div class="cartQuantityDiv box101" id="cartQuantityDiv" style="border-right: none;">{{ cart.quantity }}</div>
+                                <div class="quanIncreesDivInCart box101"><a href="{% url 'increaseCartQuantity' cart.product.id %}">+</a></div>
+                            </td>
+                            <td>৳<span id="totalMoneyInCartItem">1258</span></td>
+                            <td>
+                                <div class="timeInputDiv">
+                                    <input type="datetime-local" id="pickup_time_cart">
+                                    <input type="text" id="pickup_time_display_cart" name="form-{{ forloop.counter0 }}-time" value="Now" readonly>
+                                </div>
+                            </td>
+                            <input type="hidden" name="form-{{ forloop.counter0 }}-cart_id" value="{{ cart.id }}">
+                            <td class="actionBtnInCart"><div class="actionBtnInCartinner"><a href="{% url 'removeFromCart' cart.product.id %}">Remove from Cart</a></div></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="cartItemSummary">
+                <div class="totalCartMoney">Total Amount = ৳<span id="totalCartMoney">0</span></div>
+                <input type="submit" name="submit_action" value="PickUp">
+            </div>
+        </div>
+    </form>
+{% endblock content %}
